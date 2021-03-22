@@ -50,4 +50,4 @@ function checkDatabase() {
     }
   };
 }
-window.addEventListener("online", checkDatabase);
+addEventListener("online", checkDatabase);
