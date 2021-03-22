@@ -2,7 +2,7 @@ let db;
 
 const request = indexedDB.open("budget", 1);
 
-request.oneupgradeneeded = function(event) {
+request.onupgradeneeded = function(event) {
     const db = event.target.result;
     db.createObjectStore("pending", { autoIncrement: true});
 };
@@ -23,7 +23,7 @@ function saveRecord(record){
     store.add(record);
 };
 function checkData() {
-  const transaction = db.transaction(["pending"],"readwrite");
+    const transaction = db.transaction(["pending"],"readwrite");
   const store = transaction.objectStore("pending");
 
   const getAll = store.getAll();
